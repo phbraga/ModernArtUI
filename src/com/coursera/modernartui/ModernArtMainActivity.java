@@ -2,6 +2,8 @@ package com.coursera.modernartui;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -15,6 +17,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 public class ModernArtMainActivity extends Activity {
 
 	private static final String TAG = "ModernArtMainActivity";
+	private Context mContext;
 	private ActionBar mActionBar;
 	private LinearLayout mRectanglesLayout;
 	private SeekBar mSeekBar;
@@ -25,8 +28,9 @@ public class ModernArtMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modern_art_main);
         
+        mContext = this;
         mActionBar = getActionBar();
-        mActionBar.setDisplayShowHomeEnabled(false);
+        configureActionBar();
         
         mRectanglesLayout = (LinearLayout) findViewById(R.id.rectangles_layout);
         mSeekBar = (SeekBar) findViewById(R.id.seekBar);
@@ -75,6 +79,15 @@ public class ModernArtMainActivity extends Activity {
 		});
         
     }
+
+	private void configureActionBar() {
+        mActionBar.setDisplayShowHomeEnabled(false);
+
+		ColorDrawable colorDrawable = new ColorDrawable(mContext.getResources()
+				.getColor(R.color.default_blue_background));
+		mActionBar.setBackgroundDrawable(colorDrawable);
+		
+	}
 
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
