@@ -30,9 +30,16 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090002;
-        public static final int rectanglesLayout=0x7f090000;
-        public static final int seekBar=0x7f090001;
+        public static final int action_settings=0x7f090009;
+        public static final int fifth_rectangle=0x7f090007;
+        public static final int first_collum=0x7f090001;
+        public static final int first_rectangle=0x7f090002;
+        public static final int fourth_rectangle=0x7f090006;
+        public static final int rectangles_layout=0x7f090000;
+        public static final int second_collum=0x7f090004;
+        public static final int second_rectangle=0x7f090003;
+        public static final int seekBar=0x7f090008;
+        public static final int third_rectangle=0x7f090005;
     }
     public static final class layout {
         public static final int activity_modern_art_main=0x7f030000;
@@ -41,9 +48,10 @@ public final class R {
         public static final int modern_art_main=0x7f080000;
     }
     public static final class string {
-        public static final int action_settings=0x7f060002;
+        public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060001;
+        public static final int more_information=0x7f060003;
+        public static final int title_main_screen=0x7f060002;
     }
     public static final class style {
         /** 

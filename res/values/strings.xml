@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">ModernArtUI</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_main_screen">Modern Art UI</string>
+    <string name="more_information">More Information</string>
 
 </resources>
