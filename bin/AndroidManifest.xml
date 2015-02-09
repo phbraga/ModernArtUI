@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".ModernArtMainActivity"
-            android:label="@string/title_main_screen" >
+            android:label="@string/title_main_screen"
+            android:theme="@android:color/holo_blue_dark" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
