@@ -30,7 +30,7 @@
 	            android:layout_height="0dp"
 	            android:layout_width="match_parent"
 	            android:layout_weight="0.3"
-	            android:background="@color/darkred"
+	            android:background="@color/red"
 	            android:layout_marginBottom="20dp">
 	        </LinearLayout>
 	        
@@ -80,7 +80,7 @@
 	            android:layout_height="0dp"
 	            android:layout_width="match_parent"
 	            android:layout_weight="0.5"
-	            android:background="@color/lightgray">
+	            android:background="@color/lightorange">
 	        </LinearLayout>
 	        
 	    </LinearLayout>
