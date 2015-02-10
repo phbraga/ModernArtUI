@@ -21,7 +21,6 @@ public class ModernArtMainActivity extends Activity {
 	private ActionBar mActionBar;
 	private LinearLayout mRectanglesLayout;
 	private SeekBar mSeekBar;
-	private MoreInformationDialog mDialog;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,20 +94,8 @@ public class ModernArtMainActivity extends Activity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.more_information) {
-        	showMoreInformationDialog();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-	private void showMoreInformationDialog() {
-		mDialog = MoreInformationDialog.getInstance();
-		mDialog.show(getFragmentManager(), TAG);
+	public void showMoreInformationDialog(final MenuItem menuItem) {
+		(new MoreInformationDialog()).show(getFragmentManager(), TAG);
 	}
 
     private void adjustColorByProgress(LinearLayout rectangle, int progress) {
