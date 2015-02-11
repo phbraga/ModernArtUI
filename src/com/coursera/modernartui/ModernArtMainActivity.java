@@ -2,10 +2,13 @@ package com.coursera.modernartui;
 
 import java.util.ArrayList;
 
+import com.coursera.modernartui.R.color;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,7 +60,7 @@ public class ModernArtMainActivity extends Activity {
 				int mRectanglesLayoutChildCount = mRectanglesLayout.getChildCount();
 				Log.d(TAG, "OnProgressChange. mRectanglesLayout Child Count: " + mRectanglesLayoutChildCount);
 				
-				for(int i = 0 ; i < mRectanglesLayoutChildCount ; ++i) {
+				for(int i = 0, index = 0 ; i < mRectanglesLayoutChildCount ; ++i) {
 					Log.d(TAG, "OnProgressChange. Collum " + i);
 					
 					View child = mRectanglesLayout.getChildAt(i);
@@ -67,13 +70,13 @@ public class ModernArtMainActivity extends Activity {
 						int collumChildCount = collum.getChildCount();
 						Log.d(TAG, "OnProgressChange. Collum " + i + " Child Count: " + collumChildCount);
 						
-						for(int j = 0 ; j < collumChildCount ; ++j) {
+						for(int j = 0 ; j < collumChildCount ; ++j, ++index) {
 							Log.d(TAG, "OnProgressChange. Collum " + i + " Child: " + j);
 							
 							View collumChild = collum.getChildAt(j);
 							if (collumChild instanceof LinearLayout) {
 								LinearLayout rectangle = (LinearLayout) collumChild;
-								//rectangle.setBackgroundColor(adjustColorByProgress(startColors.get(i), finalColors.get(i) ,progress));
+								rectangle.setBackgroundColor(adjustColorByProgress(startColors.get(index), finalColors.get(index) ,progress));
 							}
 						}
 					}
@@ -118,9 +121,17 @@ public class ModernArtMainActivity extends Activity {
 		(new MoreInformationDialog()).show(getFragmentManager(), TAG);
 	}
 
-    private int adjustColorByProgress(final int startColor, final int endColor, int progress) {
+    private int adjustColorByProgress(int startColor, int finalColor, int progress) {
 		
-    	return 0;
+    	int r = Color.red(finalColor) - Color.red(startColor);
+    	int g = Color.green(finalColor) - Color.green(startColor);
+    	int b = Color.blue(finalColor) - Color.blue(startColor);
+    	
+    	int final_r = Color.red(startColor) + r * progress / 100;
+    	int final_g = Color.green(startColor) + g * progress / 100;
+    	int final_b = Color.blue(startColor) + b * progress / 100;
+    	
+    	return Color.rgb(final_r, final_g, final_b);
 	}
 
 }
