@@ -2,7 +2,20 @@
 <resources>
     
     <color name="transparent">#BF000000</color>
-    <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#949494</color>
+    <color name="lightorange">#FFB84D</color>
+    <color name="red">#FF0000</color>
+    <color name="lighblue">#9494E9</color>
+    <color name="final_white">#B2B2B2</color>
+    <color name="final_gray">#4A4A4A</color>
+    <color name="final_lightorange">#FF9900</color>
+    <color name="final_red">#B20000</color>
+    <color name="final_lighblue">#4D4DDB</color>
+    <color name="default_blue_background">#3333AD</color>
+    <color name="pressed_blue_background">#0066FF</color>
+    <color name="focused_blue_background">#0066FF</color>
+    <color name="disabled_blue_background">#DBDBDB</color>
     
 </resources>

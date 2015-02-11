@@ -1,7 +1,12 @@
 package com.coursera.modernartui;
 
+import java.util.ArrayList;
+
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,36 +16,38 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-
 public class ModernArtMainActivity extends Activity {
 
 	private static final String TAG = "ModernArtMainActivity";
+	private Context mContext;
 	private ActionBar mActionBar;
 	private LinearLayout mRectanglesLayout;
 	private SeekBar mSeekBar;
-	private MoreInformationDialog mDialog;
+	private ArrayList<Integer> startColors;
+	private ArrayList<Integer> finalColors;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modern_art_main);
         
+        mContext = this;
         mActionBar = getActionBar();
-        mActionBar.setDisplayShowHomeEnabled(false);
+        configureActionBar();
         
         mRectanglesLayout = (LinearLayout) findViewById(R.id.rectangles_layout);
         mSeekBar = (SeekBar) findViewById(R.id.seekBar);
+        
+        initColors();
         
         mSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 			
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
-				
 			}
 			
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
-				
 			}
 			
 			@Override
@@ -66,15 +73,40 @@ public class ModernArtMainActivity extends Activity {
 							View collumChild = collum.getChildAt(j);
 							if (collumChild instanceof LinearLayout) {
 								LinearLayout rectangle = (LinearLayout) collumChild;
-								adjustColorByProgress(rectangle, progress);
+								//rectangle.setBackgroundColor(adjustColorByProgress(startColors.get(i), finalColors.get(i) ,progress));
 							}
 						}
 					}
 				}
 			}
 		});
-        
     }
+
+	private void initColors() {
+		startColors = new ArrayList<Integer>();
+		finalColors = new ArrayList<Integer>();
+		
+		Resources resources = getResources();
+		
+		startColors.add(resources.getColor(R.color.red));
+		startColors.add(resources.getColor(R.color.white));
+		startColors.add(resources.getColor(R.color.gray));
+		startColors.add(resources.getColor(R.color.lighblue));
+		startColors.add(resources.getColor(R.color.lightorange));
+		
+		finalColors.add(resources.getColor(R.color.final_red));
+		finalColors.add(resources.getColor(R.color.final_white));
+		finalColors.add(resources.getColor(R.color.final_gray));
+		finalColors.add(resources.getColor(R.color.final_lighblue));
+		finalColors.add(resources.getColor(R.color.final_lightorange));
+	}
+
+	private void configureActionBar() {
+        mActionBar.setDisplayShowHomeEnabled(false);
+		ColorDrawable colorDrawable = new ColorDrawable(mContext.getResources()
+				.getColor(R.color.default_blue_background));
+		mActionBar.setBackgroundDrawable(colorDrawable);
+	}
 
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -82,24 +114,13 @@ public class ModernArtMainActivity extends Activity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.more_information) {
-        	showMoreInformationDialog();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-	private void showMoreInformationDialog() {
-		mDialog = MoreInformationDialog.getInstance();
-		mDialog.show(getFragmentManager(), TAG);
+	public void showMoreInformationDialog(final MenuItem menuItem) {
+		(new MoreInformationDialog()).show(getFragmentManager(), TAG);
 	}
 
-    private void adjustColorByProgress(LinearLayout rectangle, int progress) {
+    private int adjustColorByProgress(final int startColor, final int endColor, int progress) {
 		
+    	return 0;
 	}
 
 }
