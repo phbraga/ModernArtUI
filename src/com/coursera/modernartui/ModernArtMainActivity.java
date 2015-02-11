@@ -2,8 +2,6 @@ package com.coursera.modernartui;
 
 import java.util.ArrayList;
 
-import com.coursera.modernartui.R.color;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
